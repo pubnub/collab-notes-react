@@ -227,6 +227,7 @@ textarea {
   -moz-transform: rotate(-8deg) translateY(5px); 
   transform: rotate(-8deg) translateY(5px);  
 } 
+
 /* These classes are added by React ReactCSSTransitionGroup */
 .animation-enter {
   opacity: 0.1;
@@ -237,6 +238,10 @@ textarea {
   opacity: 1;
   transform: scale(1);
  }
+.animation-leave {
+}
+.animation-leave.animation-leave-active {
+}
 
 @media only screen and (min-width: 856px) {
   .stickie-note {

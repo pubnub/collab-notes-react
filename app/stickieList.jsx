@@ -24,7 +24,7 @@ export default class StickieList extends React.Component {
       </li>);
 
     return (
-      <ReactCSSTransitionGroup transitionName='animation' component='ul' id="stickiesList">
+      <ReactCSSTransitionGroup transitionName='animation' transitionEnterTimeout={500} transitionLeaveTimeout={500} component='ul' id="stickiesList">
         {items}
       </ReactCSSTransitionGroup>  
     )
