@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "a collaborative stickie note app with React.js + PubNub",
   "scripts": {
-    "start": "webpack-dev-server  --progress"
+    "start": "webpack-dev-server  --progress --colors --hot"
   },
   "author": "Tomomi Imura (@girlie_mac)",
   "license": "MIT",
