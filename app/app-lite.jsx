@@ -78,9 +78,9 @@ class CollabStickies extends React.Component {
   }
 }
 
-var StickieWritable = React.createClass({
+class StickieWritable extends React.Component {
 
-  handleTextChange: function(e) {
+  handleTextChange(e) {
     if(e.keyCode != 13) return;
     if(e.target.value == '') return;
     if(e.target.value == '\n') {
@@ -93,25 +93,25 @@ var StickieWritable = React.createClass({
       color: this.props.color,
       text: e.target.value,
       timestamp: Date.now()
-    }
+    };
 
     pubnub.publish({
       channel: channel, 
       message: data, 
       callback: e.target.value = ''
     });
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <div className={'stickie-note writable ' + this.props.color}>
-        <textarea type='text' placeholder='Your new note...' onKeyUp={this.handleTextChange} />
+        <textarea type='text' placeholder='Your new note...' onKeyUp={this.handleTextChange.bind(this)} />
         <p className='username'>{this.props.username}</p>
       </div>  
     );
   }
 
-});
+}
 
 
 /* DOM */

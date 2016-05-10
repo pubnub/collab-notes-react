@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export default class UserList extends React.Component {
-
   render() {
     return (
       <section className="userlist-container">

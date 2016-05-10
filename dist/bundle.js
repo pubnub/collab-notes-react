@@ -274,46 +274,56 @@
 	  return CollabStickies;
 	}(_react2.default.Component);
 
-	var StickieWritable = _react2.default.createClass({
-	  displayName: 'StickieWritable',
+	var StickieWritable = function (_React$Component2) {
+	  _inherits(StickieWritable, _React$Component2);
 
+	  function StickieWritable() {
+	    _classCallCheck(this, StickieWritable);
 
-	  handleTextChange: function handleTextChange(e) {
-	    if (e.keyCode != 13) return;
-	    if (e.target.value == '') return;
-	    if (e.target.value == '\n') {
-	      e.target.value = '';
-	      return;
-	    }
-
-	    var data = {
-	      username: this.props.username,
-	      color: this.props.color,
-	      text: e.target.value,
-	      timestamp: Date.now()
-	    };
-
-	    pubnub.publish({
-	      channel: channel,
-	      message: data,
-	      callback: e.target.value = ''
-	    });
-	  },
-
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'stickie-note writable ' + this.props.color },
-	      _react2.default.createElement('textarea', { type: 'text', placeholder: 'Your new note...', onKeyUp: this.handleTextChange }),
-	      _react2.default.createElement(
-	        'p',
-	        { className: 'username' },
-	        this.props.username
-	      )
-	    );
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(StickieWritable).apply(this, arguments));
 	  }
 
-	});
+	  _createClass(StickieWritable, [{
+	    key: 'handleTextChange',
+	    value: function handleTextChange(e) {
+	      if (e.keyCode != 13) return;
+	      if (e.target.value == '') return;
+	      if (e.target.value == '\n') {
+	        e.target.value = '';
+	        return;
+	      }
+
+	      var data = {
+	        username: this.props.username,
+	        color: this.props.color,
+	        text: e.target.value,
+	        timestamp: Date.now()
+	      };
+
+	      pubnub.publish({
+	        channel: channel,
+	        message: data,
+	        callback: e.target.value = ''
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'stickie-note writable ' + this.props.color },
+	        _react2.default.createElement('textarea', { type: 'text', placeholder: 'Your new note...', onKeyUp: this.handleTextChange.bind(this) }),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'username' },
+	          this.props.username
+	        )
+	      );
+	    }
+	  }]);
+
+	  return StickieWritable;
+	}(_react2.default.Component);
 
 	/* DOM */
 
@@ -20427,11 +20437,17 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _ReactCSSTransitionGroup = __webpack_require__(172);
+
+	var _ReactCSSTransitionGroup2 = _interopRequireDefault(_ReactCSSTransitionGroup);
+
 	var _stickie = __webpack_require__(169);
 
 	var _stickie2 = _interopRequireDefault(_stickie);
 
-	__webpack_require__(170);
+	var _webfontloader = __webpack_require__(170);
+
+	var _webfontloader2 = _interopRequireDefault(_webfontloader);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20441,14 +20457,11 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(170).load({
+	_webfontloader2.default.load({
 	  google: {
 	    families: ['Give You Glory']
 	  }
 	});
-
-	// React Animation Add-on
-	var ReactCSSTransitionGroup = __webpack_require__(171);
 
 	var StickieList = function (_React$Component) {
 	  _inherits(StickieList, _React$Component);
@@ -20475,7 +20488,7 @@
 	      });
 
 	      return _react2.default.createElement(
-	        ReactCSSTransitionGroup,
+	        _ReactCSSTransitionGroup2.default,
 	        { transitionName: 'animation', transitionEnterTimeout: 500, transitionLeaveTimeout: 500, component: 'ul', id: 'stickiesList' },
 	        items
 	      );
@@ -20574,12 +20587,7 @@
 
 
 /***/ },
-/* 171 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(172);
-
-/***/ },
+/* 171 */,
 /* 172 */
 /***/ function(module, exports, __webpack_require__) {
 

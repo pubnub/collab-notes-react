@@ -11,5 +11,4 @@ export default class Stickie extends React.Component {
       </div>  
     );
   }
-
 }
