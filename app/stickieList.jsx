@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 import Stickie from './stickie';
-import 'webfontloader'
+import webfontloader from 'webfontloader'
 
-require('webfontloader').load({
+webfontloader.load({
   google: {
     families: ['Give You Glory']
   }
 });
-
-// React Animation Add-on
-var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
-
 
 export default class StickieList extends React.Component {
 
