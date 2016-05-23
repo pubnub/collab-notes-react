@@ -48,6 +48,7 @@ class CollabStickies extends React.Component {
   }
 
   // grab data from PubNub History API when PubNub is connected for the first time
+  // When you are using the History API, you need to turn on the feature in Application add-ons at admin.pubnub.com
   connect() { 
     pubnub.history({
       channel: channel,
